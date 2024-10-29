@@ -1,5 +1,9 @@
 #include <LiquidCrystal.h>
 
+// ***General wiring instructions can be determined by reading comments. You will need to run two wires in parallel with exposed ends at a distance
+// from each other to act as a salinity sensor in which you can then measure the voltage drop in water. The base equation for converting voltage to salinity
+// is provided in this file, however, performing your own calibration will be required.
+
 // LCD Initialization
 const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
@@ -11,7 +15,7 @@ const int redLED = 10; // Output Pin for Red LED
 const double wPin = 0; // Input Pin for Water Voltage
 float wInput; // Number Input from Water Voltage (From 0 - 1000)
 float wVoltage; // Voltage Reading for Water
-float wmVoltage; // mV Reading for Water
+float wmVoltage; // mV Reading for Water - using this helps to avoid an overflow error
 int ppm = 0; // PPM Reading
 const float vConversion = .00107421875; // Variable for converting analog wInput to voltage
 const float a = 2140.072; // Variable for Exponential Equation (y = a * b^x )
@@ -39,7 +43,7 @@ void loop() {
   wmVoltage = wVoltage * 1000;
 
 // PPM Calculation
-  ppm = .0000000012165863586338 * pow(1.3526742084485, wmVoltage);
+  ppm = a * pow(b, wmVoltage);
 
 
 // Displays Mass and Voltage
