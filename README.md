@@ -17,8 +17,8 @@ This project focuses on detecting the salt concentration in water by measuring c
 - Demonstrate the use of mathematical and physical principles in creating detectors for practical applications.
 
 # Files Included:
-salt_concentration_detector.ino: Arduino code for measuring voltage and calculating salt concentration.
-README.md: This file with project descriptions and details.
+- salt_concentration_detector.ino: Arduino code for measuring voltage and calculating salt concentration. 
+- README.md: This file with project descriptions and details.
 
 # How to Run the Code:
 - Download the .ino file
