@@ -49,19 +49,19 @@ void loop() {
 // Displays Mass and Voltage
 if (ppm > 300) {
   lcd.print("PPM: ");
-    lcd.setCursor(5, 0);
-    lcd.print("           ");        
-    lcd.setCursor(5, 0);
-    lcd.setCursor(5, 0);
-    lcd.print(ppm);
-    lcd.print("PPM");
+  lcd.setCursor(5, 0);
+  lcd.print("           ");        
+  lcd.setCursor(5, 0);
+  lcd.setCursor(5, 0);
+  lcd.print(ppm);
+  lcd.print("PPM");
   
   lcd.setCursor(0, 1);
   lcd.print("Voltage: ");
   lcd.print(wVoltage);
   lcd.print("V");
   lcd.setCursor(0, 0);
-
+}
 
 // LED Functionality
   // Blue LED
